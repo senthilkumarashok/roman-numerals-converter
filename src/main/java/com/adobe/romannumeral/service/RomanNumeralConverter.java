@@ -1,12 +1,16 @@
 package com.adobe.romannumeral.service;
 
+import com.adobe.romannumeral.view.RomanNumeralResponse;
+import com.adobe.romannumeral.view.RomanNumeralResponses;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import com.google.common.collect.ImmutableMap;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.IntStream;
 
 @Component
+@Slf4j
 public class RomanNumeralConverter implements IConverter {
 
     static final Map<String, Integer> romanNumeralMap = new LinkedHashMap<>();
@@ -30,12 +34,14 @@ public class RomanNumeralConverter implements IConverter {
 
     /**
      *
-     * @param value
+     * @param input
      * @return
      */
     @Override
-    public String convertToRomanNumeral(int value) {
+    public RomanNumeralResponse convertToRomanNumeral(int input) {
+        log.info("converting romanNumeral for integer {}", input);
         StringBuilder result = new StringBuilder();
+        int value = input;
         for(Map.Entry<String, Integer> entry : romanNumeralDictionary.entrySet()) {
             int count = value / entry.getValue();
             if(count > 0) {
@@ -43,6 +49,18 @@ public class RomanNumeralConverter implements IConverter {
                 value = value % entry.getValue();
             }
         }
-        return result.toString();
+        return RomanNumeralResponse.builder()
+                .input(String.valueOf(input))
+                .output(result.toString()).build();
     }
+
+    @Override
+    public RomanNumeralResponses convertToRomanNumeral(int minValue, int maxValue) {
+        Comparator<RomanNumeralResponse> comparator = Comparator.comparing((RomanNumeralResponse o) -> Integer.valueOf(o.getInput()));
+        Set<RomanNumeralResponse> romanNumeralResponses = new TreeSet<>(comparator);
+        IntStream.range(minValue, maxValue+1).parallel().forEach(e -> romanNumeralResponses.add(convertToRomanNumeral(e)));
+        return RomanNumeralResponses.builder().conversions(romanNumeralResponses).build();
+    }
+
+
 }

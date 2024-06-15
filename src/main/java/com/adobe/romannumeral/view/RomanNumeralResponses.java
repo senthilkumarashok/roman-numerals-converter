@@ -4,10 +4,12 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Data
 @Builder
 
 public class RomanNumeralResponses {
-    List<RomanNumeralResponse> conversions;
+    Set<RomanNumeralResponse> conversions;
 }

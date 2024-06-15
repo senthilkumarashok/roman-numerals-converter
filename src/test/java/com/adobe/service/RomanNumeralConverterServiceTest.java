@@ -2,6 +2,7 @@ package com.adobe.service;
 
 import com.adobe.romannumeral.service.IConverter;
 import com.adobe.romannumeral.service.RomanNumeralConverter;
+import com.adobe.romannumeral.view.RomanNumeralResponses;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,5 +23,12 @@ public class RomanNumeralConverterServiceTest {
         Assert.assertEquals("X", converter.convertToRomanNumeral(10));
         Assert.assertEquals("XLVI", converter.convertToRomanNumeral(46));
         Assert.assertEquals("CMXCIX", converter.convertToRomanNumeral(999));
+    }
+
+    @Test
+    public void testConvertMultipleValues() {
+        RomanNumeralResponses responses = converter.convertToRomanNumeral(1, 5);
+        Assert.assertEquals(5, responses.getConversions().size());
+
     }
 }
