@@ -46,4 +46,6 @@ we can test from all the following layers
 
 `docker build -t roman-numerals-converter .`
 
+we can collect metrics using telemetry and view through grafana
+
 
