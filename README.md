@@ -35,4 +35,8 @@ Output:
 `query parameter needs to be in the range between 1 and 3999`
 `minValue must be less than maxValue`
 
+## Testing methodology
+
+we can test from controller and service both by running their corresponding integration and unit tests
+
 
