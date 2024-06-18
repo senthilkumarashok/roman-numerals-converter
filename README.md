@@ -37,6 +37,9 @@ Output:
 
 ## Testing methodology
 
-we can test from controller and service both by running their corresponding integration and unit tests
+we can test from all the following layers
+1. Application   
+2. Controller 
+3. Service
 
 
