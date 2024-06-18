@@ -44,7 +44,9 @@ we can test from all the following layers
 
 ## Build the application using docker
 
-`docker build -t roman-numerals-converter .
+`docker build -t roman-numerals-converter .`
+
+```
 [+] Building 0.6s (7/7) FINISHED                                                                                                                                                                                                docker:desktop-linux
 => [internal] load build definition from Dockerfile                                                                                                                                                                                            0.0s
 => => transferring dockerfile: 177B                                                                                                                                                                                                            0.0s
@@ -59,7 +61,7 @@ we can test from all the following layers
 => => exporting layers                                                                                                                                                                                                                         0.0s
 => => writing image sha256:a1ce381ca88db2613e294bdfe64ca1a1b68c5b1b68f38814df6cc35879b66d48                                                                                                                                                    0.0s
 => => naming to docker.io/library/roman-numerals-converter
-`
+```
 
 
 ## Run the application using docker run
