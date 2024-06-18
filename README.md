@@ -21,3 +21,16 @@ web service which can be used to represent a given number into roman numeral
 `page=0&size=2`
 
 which can reducing the amount of data loaded at once. It allows pages to load faster, ensuring smoother navigation through the webservice.
+
+## Exception Handling
+
+`
+http://localhost:8080/romannumeral/v1?query=4000
+http://localhost:8080/romannumeral/v1?query=-1
+`
+
+Output:
+
+`query parameter needs to be in the range between 1 and 3999`
+
+

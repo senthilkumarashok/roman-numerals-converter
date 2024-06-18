@@ -9,12 +9,17 @@ import com.google.common.collect.ImmutableMap;
 import java.util.*;
 import java.util.stream.IntStream;
 
+/**
+ * RomanNumeralConverter class is the implementation which will convert the given input to
+ * expected numberal format for a given number and range of numbers
+ */
 @Component
 @Slf4j
 public class RomanNumeralConverter implements IConverter {
 
     static final Map<String, Integer> romanNumeralMap = new LinkedHashMap<>();
 
+    // Keep the dictionary in reverse order such that it process based on largest possible number
     static {
                 romanNumeralMap.put("M", 1000);
                 romanNumeralMap.put("CM", 900);
@@ -42,6 +47,7 @@ public class RomanNumeralConverter implements IConverter {
         log.info("converting romanNumeral for integer {}", input);
         StringBuilder result = new StringBuilder();
         int value = input;
+
         for(Map.Entry<String, Integer> entry : romanNumeralDictionary.entrySet()) {
             int count = value / entry.getValue();
             if(count > 0) {
@@ -57,8 +63,11 @@ public class RomanNumeralConverter implements IConverter {
     @Override
     public RomanNumeralResponses convertToRomanNumeral(int minValue, int maxValue) {
         Comparator<RomanNumeralResponse> comparator = Comparator.comparing((RomanNumeralResponse o) -> Integer.valueOf(o.getInput()));
+        // Implementing treeset for storing the results in order
         Set<RomanNumeralResponse> romanNumeralResponses = new TreeSet<>(comparator);
+        // Iterating loop in parallel for faster processing
         IntStream.range(minValue, maxValue+1).parallel().forEach(e -> romanNumeralResponses.add(convertToRomanNumeral(e)));
+        // transform the result into expected data transfer object for representation
         return RomanNumeralResponses.builder().conversions(romanNumeralResponses).build();
     }
 
