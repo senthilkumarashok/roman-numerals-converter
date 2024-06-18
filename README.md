@@ -14,7 +14,7 @@ web service which can be used to represent a given number into roman numeral
 
 `http://localhost:8080/romannumeral/v1?query=50`
 
-## To access the list of metrics through actuator
+## To access the list of metrics available through actuator
 `http://localhost:8080/actuator/prometheus`
 
 ## In case we have so many results data , then we can implement Pagination which will retreive by passing page and size 
