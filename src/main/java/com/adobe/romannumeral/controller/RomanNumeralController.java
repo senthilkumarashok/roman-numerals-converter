@@ -26,6 +26,9 @@ public class RomanNumeralController {
 
     @GetMapping(value = "/v2", produces = {MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<RomanNumeralResponses> queryRange(@RequestParam("min") int minValue, @RequestParam("max") int maxValue) {
+        if(minValue < 0 || maxValue > 3999) throw new InvalidInputException("minValue and maxValue parameter must be in the range between 1 and 3999");
+        if(minValue > maxValue) throw new InvalidInputException("minValue must be less than maxValue");
+
         RomanNumeralResponses response = converter.convertToRomanNumeral(minValue, maxValue);
         return ResponseEntity.ok(response);
     }
