@@ -42,4 +42,8 @@ we can test from all the following layers
 2. Controller 
 3. Service
 
+## Build the application using docker
+
+`docker build -t roman-numerals-converter .`
+
 
