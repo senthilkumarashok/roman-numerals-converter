@@ -91,6 +91,6 @@ docker run -p 8080:8080 roman-numerals-converter
 2024-06-18T04:45:56.926Z  INFO 1 --- [roman-numerals-converter] [           main] com.adobe.romannumeral.Application       : Started Application in 1.47 seconds (process running for 1.736)
 ```
 
-we can collect metrics using telemetry and view through grafana
+we can collect metrics by Configureing OpenTelemetry Collector and view through grafana
 
 
