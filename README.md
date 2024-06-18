@@ -26,11 +26,13 @@ which can reducing the amount of data loaded at once. It allows pages to load fa
 
 `
 http://localhost:8080/romannumeral/v1?query=4000
-http://localhost:8080/romannumeral/v1?query=-1
+http://localhost:8080/romannumeral/v1?query=-1\
+http://localhost:8080/romannumeral/v2?min=21&max=11
 `
 
 Output:
 
 `query parameter needs to be in the range between 1 and 3999`
+`minValue must be less than maxValue`
 
 
