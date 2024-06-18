@@ -24,11 +24,9 @@ which can reducing the amount of data loaded at once. It allows pages to load fa
 
 ## Exception Handling
 
-`
-http://localhost:8080/romannumeral/v1?query=4000
-http://localhost:8080/romannumeral/v1?query=-1\
-http://localhost:8080/romannumeral/v2?min=21&max=11
-`
+`http://localhost:8080/romannumeral/v1?query=4000`
+`http://localhost:8080/romannumeral/v1?query=-1\`
+`http://localhost:8080/romannumeral/v2?min=21&max=11`
 
 Output:
 
