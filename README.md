@@ -67,6 +67,9 @@ we can test from all the following layers
 ## Run the application using docker run
 `
 docker run -p 8080:8080 roman-numerals-converter
+`
+
+```
 .   ____          _            __ _ _
 /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -86,8 +89,7 @@ docker run -p 8080:8080 roman-numerals-converter
 2024-06-18T04:45:56.849Z  INFO 1 --- [roman-numerals-converter] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
 2024-06-18T04:45:56.893Z  INFO 1 --- [roman-numerals-converter] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2024-06-18T04:45:56.926Z  INFO 1 --- [roman-numerals-converter] [           main] com.adobe.romannumeral.Application       : Started Application in 1.47 seconds (process running for 1.736)
-
-`
+```
 
 we can collect metrics using telemetry and view through grafana
 
